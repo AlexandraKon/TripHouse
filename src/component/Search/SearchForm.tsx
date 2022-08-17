@@ -19,12 +19,28 @@ export const SearchForm = ({value, onChange}: Props) => {
         room: 1,
     });
 
-    const handleOption = (name: string, operation: string) => {
-        
-    };
+    // function handleOption(name: string, operation: string) {
+    //     setOptions(prev => {
+    //         if (name === "adult")
+    //         return {
+    //             ...prev, [name]: operation === "i" ? options[name] + 1 : options[name] - 1,
+    //         };
+    //     });
 
-    //const startValue: Date = new Date (new Date().getFullYear(), new Date().getMonth(), 14);
-    //const endValue: Date = new Date (new Date().getFullYear(), new Date().getMonth(), +1, 15);
+    
+    // }const copyObj = {…prev}; 
+// prev[name] += 1?
+// return copyObj
+
+    function handleOption(name: string, operation: string) {
+        setOptions {
+            
+            return {
+                ...prev, [name]: operation === "i" ? options[name] + 1 : options[name] - 1,
+            };
+        });
+    }
+
     const minDate: Date = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
     const maxDate: Date = new Date(new Date().getFullYear()+2, new Date().getMonth(), new Date().getDate());
 
@@ -38,34 +54,34 @@ export const SearchForm = ({value, onChange}: Props) => {
                     minDays={2} format="dd-MMM-yy"></DateRangePickerComponent>
                 </div>
                 <div className='search-form__action'>
-                    <span className='search-form__ticket'>{`${options.adult} Adult — ${options.adult} Children — ${options.adult} Room`}</span> 
-                    <div className='option'>
+                    <span onClick={()=>setOpenOptions(!openOptions)} className='search-form__ticket'>{`${options.adult} Adult — ${options.children} Children — ${options.room} Room`}</span> 
+                    { openOptions && <div className='option'>
                         <div className='option__item'>
                             <span className='option__text'>Adult</span>
                             <div className='option__counter'>
-                                <button className='option__counterBtn' onClick={()=>handleOption("adult", "d")}>-</button>
-                                <span className='option__counterNumber'>1</span>
+                                <button disabled={options.children <= 1} className='option__counterBtn' onClick={()=>handleOption("adult", "d")}>-</button>
+                                <span className='option__counterNumber'>{options.adult}</span>
                                 <button className='option__counterBtn' onClick={()=>handleOption("adult", "i")}>+</button>
                             </div> 
                         </div>
                         <div className='option__item'>
                             <span className='option__text'>Children</span>
                             <div className='option__counter'>
-                                <button className='option__counterBtn' onClick={()=>handleOption("children", "d")}>-</button>
-                                <span className='option__counterNumber'>1</span>
+                                <button disabled={options.children <= 0} className='option__counterBtn' onClick={()=>handleOption("children", "d")}>-</button>
+                                <span className='option__counterNumber'>{options.children}</span>
                                 <button className='option__counterBtn' onClick={()=>handleOption("children", "i")}>+</button>
                             </div>
                         </div>
                         <div className='option__item'>
                             <span className='option__text'>Room</span>
                             <div className='option__counter'>
-                                <button className='option__counterBtn' onClick={()=>handleOption("room", "d")}>-</button>
-                                <span className='option__counterNumber'>1</span>
+                                <button disabled={options.room  <= 1} className='option__counterBtn' onClick={()=>handleOption("room", "d")}>-</button>
+                                <span className='option__counterNumber'>{options.room}</span>
                                 <button className='option__counterBtn' onClick={()=>handleOption("room", "i")}>+</button>
                             </div>
                         </div>
                     </div> 
-                
+                    }
                 </div>
                 <button className="search-form__btn">Search</button>
             </form>
