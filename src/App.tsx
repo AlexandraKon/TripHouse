@@ -1,12 +1,15 @@
 import { ChangeEvent, useEffect, useState } from 'react';
-import Homes from './component/Homes/Homes';
+import { Homes } from './component/Homes/Homes';
 import { Header } from './component/Header/Header';
 import { Main } from './component/Main/main';
+import { ThemeProvider } from 'styled-components';
 import Api from './component/Api/Api';
+import './scss/index.scss';
+import { useSelector } from 'react-redux';
+import { ContextProvider } from '../src/context/ContextProvider';
 
 
-
-function App() {
+export function App() {
 
   const [data, setData] = useState([]);
   const [value, setValue] = useState('');
@@ -21,13 +24,16 @@ function App() {
     console.log("re-render");
   };
 
+  //const theme = useSelector(themeSelector);
+ // const isDark = theme === ThemaEnum.DARK ? darkTheme : lightTheme;
+
   return (
-    <div className='app'>
-      <Header value={value} onChange={handleChange}/>
-      <Main data={data}/>
-      <Homes/>
-    </div>
+    <ContextProvider>
+      <ThemeProvider theme={isDark} >
+        <Header value={value} onChange={handleChange}/>
+        <Main data={data}/>
+        <Homes/>
+      </ThemeProvider>
+    </ContextProvider>
   );
 }
-
-export default App;

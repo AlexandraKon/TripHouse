@@ -21,5 +21,3 @@ export const Homes = () => {
         </section>
     )
 };
-
-export default Homes;
