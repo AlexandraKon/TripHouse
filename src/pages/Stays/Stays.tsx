@@ -1,7 +1,14 @@
-import React from 'react'
+import { Header } from "../../component/Header/Header";
+import { Main } from "../../component/Main/Main";
+import { Footer } from "";
+
 
 export const Stays = () => {
     return (
-        <div>Stays</div>
+        <>
+            <Header />
+            <Main />
+            <Footer />
+        </>
     );
 };

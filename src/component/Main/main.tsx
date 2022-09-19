@@ -1,17 +1,16 @@
 import SearchHomes from '../Search/SearchHomes';
 import { HomesContent} from '../../data/data';
+import { AvailableHotels } from "./AvailableHotels";
+import { Offers } from "./Offers";
+import { PopularHotels } from "./PopularHotels";
 
-type Props = {
-    data: HomesContent[]
-}
-export const Main = ({data}: Props) => {
+export const Main = () => {
     
     return(
         <main>
-            <SearchHomes homes={data} />
+            <AvailableHotels />
+            <Offers />
+            <PopularHotels />
         </main>
     )
-     
 };
-
-export default Main;
