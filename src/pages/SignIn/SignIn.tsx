@@ -4,7 +4,7 @@ import { SignInForm } from "";
 
 
 
-const SignIn = () => {
+export const SignIn = () => {
   return (
     <StyledSignIn>
         <Header/>
@@ -12,5 +12,3 @@ const SignIn = () => {
     </StyledSignIn>
   )
 }
-
-export default SignIn

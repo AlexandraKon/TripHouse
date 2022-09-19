@@ -1,4 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
+import { Stays } from "";
+import { Hotel } from "";
+import { SingIn } from "../pages/SignIn/SignIn";
+
 
 export const AppRouter = () => {
 
