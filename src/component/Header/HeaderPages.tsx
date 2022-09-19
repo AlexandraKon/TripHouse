@@ -1,10 +1,9 @@
 import { Nav } from "./Nav";
-import {
-  HeaderContainer,
-  HeaderContent,
+import { HeaderForPages, 
+  HeaderContainer, 
+  HeaderContent, 
   StyledHeader,
   StyledLogo,
-  
   StyledToggle,
   StyledUser,
 } from "./styles";
@@ -25,13 +24,3 @@ export const HeaderPages = () => {
       </HeaderForPages>
     );
   };
-  
-  const HeaderForPages = styled.div`
-    height: 150px;
-    overflow: hidden;
-  
-    @media ${LightTheme.media.lg} {
-      height: 100px;
-    }
-  `;
-  

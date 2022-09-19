@@ -1,14 +1,12 @@
 import { StyledSignIn } from "./styles";
-import { Header } from "";
-import { SignInForm } from "";
-
-
+import { HeaderPages } from "../../component/Header/HeaderPages";
+import { SignInForm } from "../../component/Form/SignInForm";
 
 export const SignIn = () => {
   return (
     <StyledSignIn>
-        <Header/>
+        <HeaderPages/>
         <SignInForm/>
     </StyledSignIn>
-  )
-}
+  );
+};
